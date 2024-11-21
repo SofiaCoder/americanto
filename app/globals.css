@@ -2,35 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Lato';
-  src: url('/fonts/Lato-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Lato';
-  src: url('/fonts/Lato-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Lato';
-  src: url('/fonts/Lato-Italic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'Lato';
-  src: url('/fonts/Lato-Light.ttf') format('truetype');
-  font-weight: thin;
-  font-style: normal;
-}
-
 :root {
-  --background: #ffffff;
+  --background: #e8e5e5;
   --foreground: #171717;
 }
 
@@ -40,11 +13,26 @@
     --foreground: #ffffff;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Lato;
+}
+
+section {
+  margin-inline: 4rem;
+  margin-top: 9rem;
+  height: 100vh;
+  scroll-margin-top: 9rem;
+}
+
+.menu {
+  background-color: var(--background);
+  height: 7rem;
 }
 
 h1 {

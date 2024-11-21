@@ -1,11 +1,7 @@
 import React from 'react';
 
 const Intro = () => {
-  return (
-    <div id='intro' className='h-screen'>
-      Intro
-    </div>
-  );
+  return <section id='intro'>Intro</section>;
 };
 
 export default Intro;

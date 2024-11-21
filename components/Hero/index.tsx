@@ -1,16 +1,20 @@
+import Image from 'next/image';
+
 const Hero = () => {
   return (
-    <div id='hero' className='flex m-16'>
+    <section id='hero' className='flex place-self-center mt-16'>
       <div className=''>
-        <h1 className='text-4xl'>Latinamerikansk kör</h1>
-        <p className='w-1/2 mt-4'>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem
-          excepturi ex reprehenderit. Perspiciatis, dolorum. Soluta nisi optio,
-          laboriosam et nihil dolorum adipisci! Ipsum laboriosam minima quae aut
-          quidem vel placeat.
-        </p>
+        <h1 className='text-5xl font-bold'>Coro Americanto</h1>
+        <div className='relative h-72 w-92 overflow-hidden rounded-lg m-5'>
+          <Image
+            src='/images/choir.jpg'
+            alt='choir singing'
+            fill
+            className='absolute object-cover object-top'
+          />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
