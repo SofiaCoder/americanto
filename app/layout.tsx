@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-//import localFont from 'next/font/local';
 import './globals.css';
 import { Lato } from 'next/font/google';
+import ScrollObserver from '../components/ScrollObserver';
 
 const lato = Lato({
   subsets: ['latin'],
@@ -20,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={lato.className}>{children}</body>
+      <body className={lato.className}>
+        {children}
+        <ScrollObserver />
+      </body>
     </html>
   );
 }
