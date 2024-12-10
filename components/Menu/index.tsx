@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const Menu = () => {
+  const linkStyle = 'bg-background rounded-lg p-2';
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
@@ -33,10 +34,18 @@ const Menu = () => {
         />
       </Link>
       <div className='flex gap-4'>
-        <Link href='#intro'>Om Americanto</Link>
-        <Link href='#gallery'>Galleri</Link>
-        <Link href='#conductors'>Våra Dirigenter</Link>
-        <Link href='#singers'>Våra Sångare</Link>
+        <Link href='#intro' className={linkStyle}>
+          Om Americanto
+        </Link>
+        <Link href='#gallery' className={linkStyle}>
+          Galleri
+        </Link>
+        <Link href='#conductors' className={linkStyle}>
+          Våra Dirigenter
+        </Link>
+        <Link href='#singers' className={linkStyle}>
+          Våra Sångare
+        </Link>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import Singers from '@/components/Singers';
 
 export default function Home() {
   return (
-    <div className='pt-20 mx-20'>
+    <div>
       <Menu />
       <Hero />
       <Intro />
