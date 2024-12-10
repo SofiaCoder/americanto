@@ -17,7 +17,7 @@ export default function ScrollObserver() {
         });
       },
       {
-        threshold: 0.5,
+        threshold: 0.7,
       }
     );
 

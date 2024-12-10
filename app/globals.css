@@ -35,13 +35,13 @@ section {
   transition: background-color 0.5s ease-in-out; /* Add transition */
 }
 
-/* section:nth-of-type(odd) {
+section:nth-of-type(odd) {
   background-color: var(--color-odd);
 }
 
 section:nth-of-type(even) {
   background-color: var(--color-even);
-} */
+}
 
 section.in-view:nth-of-type(odd) {
   background-color: var(--color-even); /* Swap colors when in view */
