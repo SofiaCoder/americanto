@@ -4,8 +4,10 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const Menu = () => {
-  const linkStyle = 'bg-background rounded-lg p-2';
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const [open, setOpen] = useState(false);
+  const menuView = open ? 'openMenu' : 'closedMenu';
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -21,31 +23,36 @@ const Menu = () => {
       mediaQuery.removeEventListener('change', handleChange);
     };
   }, []);
+
   return (
-    <div className='z-50 flex justify-between items-center px-8 fixed left-0 right-0 top-0 menu'>
-      <Link href='#hero'>
-        <Image
-          src={
-            isDarkMode ? '/images/logoVit.svg' : '/images/americantoLogo2.svg'
-          }
-          alt='americanto logo'
-          width={250}
-          height={250}
-        />
-      </Link>
-      <div className='flex gap-4'>
-        <Link href='#intro' className={linkStyle}>
-          Om Americanto
+    <div className={`menu ${menuView}`}>
+      <div className='logoContainer'>
+        <Link href='#hero'>
+          <Image
+            src={
+              isDarkMode ? '/images/logoVit.svg' : '/images/americantoLogo2.svg'
+            }
+            alt='americanto logo'
+            width={250}
+            height={250}
+          />
         </Link>
-        <Link href='#gallery' className={linkStyle}>
-          Galleri
-        </Link>
-        <Link href='#conductors' className={linkStyle}>
-          Våra Dirigenter
-        </Link>
-        <Link href='#singers' className={linkStyle}>
-          Våra Sångare
-        </Link>
+      </div>
+      <Image
+        className='burgerMenu'
+        src={open ? '/images/cross.png' : '/images/burger-white.png'}
+        alt='burger-menu'
+        width={50}
+        height={50}
+        onClick={() => setOpen((prev) => !prev)}
+      />
+      <div className='menuItems'>
+        <div className='menuLinks'>
+          <Link href='#intro'>Om Americanto</Link>
+          <Link href='#gallery'>Galleri</Link>
+          <Link href='#conductors'>Våra Dirigenter</Link>
+          <Link href='#singers'>Våra Sångare</Link>
+        </div>
       </div>
     </div>
   );
