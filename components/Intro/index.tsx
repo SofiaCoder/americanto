@@ -8,7 +8,7 @@ const Intro = () => {
         <Image src='/images/notes.jpg' alt='notes' width={500} height={500} />
       </div>
       <div className='w-1/2 flex flex-col gap-8'>
-        <h2 className='font-bold text-4xl'>Om Americanto</h2>
+        <h2 className=''>Om Americanto</h2>
         <p className=''>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur
           repellendus dicta ad magni suscipit alias assumenda aperiam,
