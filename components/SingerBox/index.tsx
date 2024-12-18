@@ -10,7 +10,7 @@ interface SingerBoxProps {
 const SingerBox: React.FC<SingerBoxProps> = ({ name, imgPath, text }) => {
   return (
     <div className='h-[20vh] relative aspect-[4/3] w-[20vh] flex rounded-xl mt-6'>
-      <div className='flex flex-col gap-3'>
+      <div className='flex flex-col gap-3 m-2'>
         <h4>{name}</h4>
         {text && <p>{text}</p>}
       </div>

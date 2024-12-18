@@ -5,10 +5,10 @@
 @tailwind utilities;
 
 :root {
-  --background: #e8e5e5;
+  --background: #e9e9e9;
   --foreground: #171717;
-  --color-odd: #181818;
-  --color-even: #565656;
+  --color-odd: #e9e9e9;
+  --color-even: #ede7d6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,7 +16,7 @@
     --background: #181818;
     --foreground: #ffffff;
     --color-odd: #181818;
-    --color-even: #2f2f2f;
+    --color-even: #282828;
   }
 }
 html {

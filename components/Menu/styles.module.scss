@@ -41,7 +41,7 @@
 
       a {
         font-size: 18px;
-        background: #000;
+        background: var(--background);
         padding: 10px;
         border-radius: 10px;
         &:hover {
