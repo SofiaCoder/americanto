@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import SlideShow from '../SlideShow';
 
 const images = [
   '/images/notesHeart.jpg',
@@ -8,12 +8,10 @@ const images = [
 
 const Gallery = () => {
   return (
-    <section id='gallery'>
-      <h2>Gallery</h2>
-      <div className='my-10 flex gap-5'>
-        {images.map((image, index) => (
-          <Image key={index} src={image} alt='notes' width={400} height={400} />
-        ))}
+    <section id='gallery' data-section-class='even-section-bg'>
+      {/* <h2>Gallery</h2> */}
+      <div className='flex justify-center slide-in-right'>
+        <SlideShow images={images} />
       </div>
     </section>
   );

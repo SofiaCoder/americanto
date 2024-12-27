@@ -7,10 +7,10 @@ const conductorImage =
 
 const Conductors = () => {
   return (
-    <section id='conductors'>
-      <h2>Våra Dirigenter</h2>
+    <section id='conductors' data-section-class='odd-section-bg'>
+      <h2 className='slide-in-top'>Våra Dirigenter</h2>
       <div className='flex mt-10 items-center'>
-        <div className='m-10'>
+        <div className='m-10 slide-in-bottom'>
           <h3>Johanna Pomo</h3>
           <div className={conductorBox}>
             <Image
@@ -27,7 +27,7 @@ const Conductors = () => {
             </p>
           </div>
         </div>
-        <div className='m-10'>
+        <div className='m-10 slide-in-bottom'>
           <h3>Rolando Pomo</h3>
           <div className={conductorBox}>
             <Image

@@ -10,14 +10,37 @@ export default function ScrollObserver() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-          } else {
-            entry.target.classList.remove('in-view');
+
+            // 🖌️ Handle background color changes
+            const sectionClass = entry.target.getAttribute('data-section-class');
+            if (sectionClass) {
+              document.body.classList.remove(
+                'odd-section-bg',
+                'even-section-bg'
+              );
+              document.body.classList.add(sectionClass);
+            }
+
+            // 🎭 Handle animations
+            const animatedElements = entry.target.querySelectorAll(
+              '.slide-in-bottom, .slide-in-top, .slide-in-left, .slide-in-right'
+            );
+            animatedElements.forEach((el) => {
+              el.classList.add('animate-in-view');
+            });
+            // } else {
+            //   // 🛑 Optionally reset animations when section goes out of view
+            //   const animatedElements = entry.target.querySelectorAll(
+            //     '.slide-in-bottom, .slide-in-top'
+            //   );
+            //   animatedElements.forEach((el) => {
+            //     el.classList.remove('animate-in-view');
+            //   });
           }
         });
       },
       {
-        threshold: 0.7,
+        threshold: 0.5,
       }
     );
 

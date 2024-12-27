@@ -8,9 +8,9 @@ const singersArray = [
 
 const Singers = () => {
   return (
-    <section id='singers'>
-      <h2>Våra Sångare</h2>
-      <div className='flex gap-10'>
+    <section id='singers' data-section-class='even-section-bg'>
+      <h2 className='slide-in-left'>Våra Sångare</h2>
+      <div className='flex gap-10 slide-in-bottom'>
         {singersArray.map((singer) => (
           <SingerBox
             key={singer.name}

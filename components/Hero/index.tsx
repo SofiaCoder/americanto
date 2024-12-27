@@ -2,9 +2,13 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <section id='hero' className='flex flex-col items-center'>
-      <h1 className='mb-10'>Coro Americanto</h1>
-      <div className='flex items-center'>
+    <section
+      id='hero'
+      className='flex flex-col items-center'
+      data-section-class='even-section-bg'
+    >
+      <h1 className='mb-10 slide-in-top'>Coro Americanto</h1>
+      <div className='flex items-center slide-in-bottom'>
         <p className='-rotate-90 -mr-16 m-0 w-52 h-3 text-center'>
           text text text
         </p>

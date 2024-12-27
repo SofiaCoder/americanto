@@ -16,7 +16,7 @@
     --background: #181818;
     --foreground: #ffffff;
     --color-odd: #181818;
-    --color-even: #282828;
+    --color-even: #490303;
   }
 }
 html {
@@ -27,6 +27,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Lato;
+  transition: background-color 0.8s ease, color 0.8s ease;
 }
 
 section {
@@ -34,23 +35,41 @@ section {
   padding-top: 9rem;
   height: 100vh;
   scroll-padding-top: 9rem;
-  transition: background-color 0.5s ease-in-out; /* Add transition */
 }
 
-section:nth-of-type(odd) {
+.odd-section-bg {
   background-color: var(--color-odd);
 }
-
-section:nth-of-type(even) {
+.even-section-bg {
   background-color: var(--color-even);
 }
 
-section.in-view:nth-of-type(odd) {
-  background-color: var(--color-even); /* Swap colors when in view */
+/* Animation Classes */
+.slide-in-bottom {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-section.in-view:nth-of-type(even) {
-  background-color: var(--color-odd); /* Swap colors when in view */
+.slide-in-top {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-in-view {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
 }
 
 .menu {
