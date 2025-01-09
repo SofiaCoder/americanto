@@ -15,7 +15,7 @@ export const Bounded = ({
   ...restProps
 }: BoundedProps) => {
   return (
-    <Comp id={id} className={clsx('px-4', className)} {...restProps}>
+    <Comp id={id} className={clsx('', className)} {...restProps}>
       {children}
     </Comp>
   );
