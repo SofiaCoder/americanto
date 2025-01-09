@@ -27,7 +27,9 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Lato;
-  transition: background-color 0.8s ease, color 0.8s ease;
+  transition:
+    background-color 0.8s ease,
+    color 0.8s ease;
 }
 
 section {
@@ -48,23 +50,31 @@ section {
 .slide-in-bottom {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 .slide-in-top {
   opacity: 0;
   transform: translateY(-50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 .slide-in-left {
   opacity: 0;
   transform: translateX(-50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 .slide-in-right {
   opacity: 0;
   transform: translateX(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 .animate-in-view {
