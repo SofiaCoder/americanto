@@ -1,8 +1,9 @@
 import Bounded from '@/components/Bounded';
 import Heading from '@/components/Heading';
+import Paragraph from '@/components/Paragraph';
 import { Content } from '@prismicio/client';
+import { PrismicNextImage } from '@prismicio/next';
 import { SliceComponentProps } from '@prismicio/react';
-import Image from 'next/image';
 
 /**
  * Props for `Hero`.
@@ -24,21 +25,23 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       <Heading as='h1' size='xl' className='mb-10 slide-in-top'>
         {slice.primary.title}
       </Heading>
-      <div className='flex items-center slide-in-bottom'>
-        <p className='-rotate-90 -mr-16 m-0 w-52 h-3 text-center'>
+      <div className='flex flex-col md:flex-row items-center slide-in-bottom'>
+        <Paragraph
+          size='md'
+          className='hidden w-52 h-6 grow-0 text-nowrap text-center md:-rotate-90 md:-mr-8 md:block lg:-mr-16'
+        >
           {slice.primary.left_text}
-        </p>
-        <div className='h-[50vh] relative aspect-[4/3] w-[70vw]'>
-          <Image
-            src='/images/choir.jpg'
-            alt='choir singing'
-            fill
-            className='object-cover absolute'
-          />
-        </div>
-        <p className='rotate-90 -ml-16 m-0 w-52 h-3 text-center'>
+        </Paragraph>
+        <PrismicNextImage
+          field={slice.primary.hero_image}
+          className='h-[40vh] grow rounded-md shrink-0 md:h-[50vh] md:w-[65vw] lg:h-[65vh] lg:w-[70vw]'
+        />
+        <Paragraph
+          size='md'
+          className='mt-4 w-52 h-6 grow-0 text-nowrap text-center md:mt-0 md:rotate-90 md:-ml-8 lg:-ml-16'
+        >
           {slice.primary.right_text}
-        </p>
+        </Paragraph>
       </div>
     </Bounded>
   );

@@ -1,5 +1,6 @@
 import Bounded from '@/components/Bounded';
 import Heading from '@/components/Heading';
+import Paragraph from '@/components/Paragraph';
 import { Content } from '@prismicio/client';
 import { PrismicNextImage } from '@prismicio/next';
 import {
@@ -9,12 +10,12 @@ import {
 } from '@prismicio/react';
 
 const components: JSXMapSerializer = {
-  heading1: ({ children }) => (
+  heading2: ({ children }) => (
     <Heading as='h2' size='lg' className=''>
       {children}
     </Heading>
   ),
-  paragraph: ({ children }) => <p>{children}</p>,
+  paragraph: ({ children }) => <Paragraph size='md'>{children}</Paragraph>,
 };
 
 /**
@@ -31,7 +32,7 @@ const Intro = ({ slice }: IntroProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       id='intro'
-      className='flex gap-10'
+      className='flex flex-col mb-8 lg:flex-row gap-10'
       data-section-class='odd-section-bg'
     >
       <div className='slide-in-top'>
@@ -40,7 +41,7 @@ const Intro = ({ slice }: IntroProps): JSX.Element => {
           className='drop-shadow-xl max-w-4xl w-full'
         />
       </div>
-      <div className='w-1/2 flex flex-col gap-8 slide-in-bottom'>
+      <div className='lg:w-1/2 flex flex-col gap-8 slide-in-bottom'>
         <PrismicRichText field={slice.primary.title} components={components} />
         <PrismicRichText field={slice.primary.phrase} components={components} />
       </div>
