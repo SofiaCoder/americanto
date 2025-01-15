@@ -4,7 +4,12 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = IntroSlice | HeroSlice;
+type HomeDocumentDataSlicesSlice =
+  | SingersSlice
+  | ConductorsSlice
+  | GallerySlice
+  | IntroSlice
+  | HeroSlice;
 
 /**
  * Content for Home documents
@@ -169,6 +174,98 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomeDocument | SettingsDocument;
 
 /**
+ * Item in *Conductors → Default → Primary → Conductor*
+ */
+export interface ConductorsSliceDefaultPrimaryConductorItem {
+  /**
+   * Name field in *Conductors → Default → Primary → Conductor*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conductors.default.primary.conductor[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * About field in *Conductors → Default → Primary → Conductor*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conductors.default.primary.conductor[].about
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  about: prismic.RichTextField;
+
+  /**
+   * Image field in *Conductors → Default → Primary → Conductor*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conductors.default.primary.conductor[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Conductors → Default → Primary*
+ */
+export interface ConductorsSliceDefaultPrimary {
+  /**
+   * Title field in *Conductors → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conductors.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Conductor field in *Conductors → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conductors.default.primary.conductor[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  conductor: prismic.GroupField<
+    Simplify<ConductorsSliceDefaultPrimaryConductorItem>
+  >;
+}
+
+/**
+ * Default variation for Conductors Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ConductorsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ConductorsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Conductors*
+ */
+type ConductorsSliceVariation = ConductorsSliceDefault;
+
+/**
+ * Conductors Shared Slice
+ *
+ * - **API ID**: `conductors`
+ * - **Description**: Conductors
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ConductorsSlice = prismic.SharedSlice<
+  "conductors",
+  ConductorsSliceVariation
+>;
+
+/**
  * Item in *Gallery → Default → Primary → Images*
  */
 export interface GallerySliceDefaultPrimaryImagesItem {
@@ -187,6 +284,16 @@ export interface GallerySliceDefaultPrimaryImagesItem {
  * Primary content in *Gallery → Default → Primary*
  */
 export interface GallerySliceDefaultPrimary {
+  /**
+   * Title field in *Gallery → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
   /**
    * Images field in *Gallery → Default → Primary*
    *
@@ -362,6 +469,88 @@ type IntroSliceVariation = IntroSliceDefault;
  */
 export type IntroSlice = prismic.SharedSlice<"intro", IntroSliceVariation>;
 
+/**
+ * Item in *Singers → Default → Primary → Subgroup*
+ */
+export interface SingersSliceDefaultPrimarySubgroupItem {
+  /**
+   * Title field in *Singers → Default → Primary → Subgroup*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: singers.default.primary.subgroup[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * List Of Singers field in *Singers → Default → Primary → Subgroup*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: singers.default.primary.subgroup[].list_of_singers
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  list_of_singers: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Singers → Default → Primary*
+ */
+export interface SingersSliceDefaultPrimary {
+  /**
+   * Title field in *Singers → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: singers.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subgroup field in *Singers → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: singers.default.primary.subgroup[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  subgroup: prismic.GroupField<
+    Simplify<SingersSliceDefaultPrimarySubgroupItem>
+  >;
+}
+
+/**
+ * Default variation for Singers Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SingersSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SingersSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Singers*
+ */
+type SingersSliceVariation = SingersSliceDefault;
+
+/**
+ * Singers Shared Slice
+ *
+ * - **API ID**: `singers`
+ * - **Description**: Singers
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SingersSlice = prismic.SharedSlice<
+  "singers",
+  SingersSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -390,6 +579,11 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
+      ConductorsSlice,
+      ConductorsSliceDefaultPrimaryConductorItem,
+      ConductorsSliceDefaultPrimary,
+      ConductorsSliceVariation,
+      ConductorsSliceDefault,
       GallerySlice,
       GallerySliceDefaultPrimaryImagesItem,
       GallerySliceDefaultPrimary,
@@ -403,6 +597,11 @@ declare module "@prismicio/client" {
       IntroSliceDefaultPrimary,
       IntroSliceVariation,
       IntroSliceDefault,
+      SingersSlice,
+      SingersSliceDefaultPrimarySubgroupItem,
+      SingersSliceDefaultPrimary,
+      SingersSliceVariation,
+      SingersSliceDefault,
     };
   }
 }

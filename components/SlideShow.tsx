@@ -4,25 +4,25 @@ import { FC } from 'react';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
-import Image from 'next/image';
+import { PrismicNextImage } from '@prismicio/next';
+import { ImageField } from '@prismicio/client';
 
 interface SlideShowProps {
-  images: string[];
+  images: { image: ImageField }[];
 }
-
 const zoomInProperties = {
   duration: 5000,
   transitionDuration: 300,
   infinity: true,
 
   prevArrow: (
-    <div className='ml-10'>
-      <ArrowLeftIcon className='h-8 w-8 text-white cursor-pointer' />
+    <div className='ml-6 md:ml-10'>
+      <ArrowLeftIcon className='h-5 w-5 md:h-8 md:w-8 text-white cursor-pointer' />
     </div>
   ),
   nextArrow: (
-    <div className='mr-10'>
-      <ArrowRightIcon className='h-8 w-8 text-white cursor-pointer' />
+    <div className='mr-6 md:mr-10'>
+      <ArrowRightIcon className='h-5 w-5 md:h-8 md:w-8 text-white cursor-pointer' />
     </div>
   ),
 };
@@ -30,16 +30,14 @@ const SlideShow: FC<SlideShowProps> = ({ images }) => {
   return (
     <div className='w-[80vw]'>
       <Fade {...zoomInProperties}>
-        {images.map((img: string, index: number) => (
+        {images.map((item, index: number) => (
           <div
             key={index}
-            className='flex justify-center md:items-center items-start h-[75vh] w-[80vw] rounded-2xl relative'
+            className='flex justify-center md:items-center items-start h-[40vh] md:h-[50vh] w-[80vw] lg:h-[75vh] rounded-2xl'
           >
-            <Image
-              src={img}
-              alt='image'
-              fill
-              className='object-cover absolute rounded-2xl'
+            <PrismicNextImage
+              field={item.image}
+              className='h-[40vh] md:h-[50vh] w-[80vw] lg:h-[75vh] rounded-2xl'
             />
           </div>
         ))}

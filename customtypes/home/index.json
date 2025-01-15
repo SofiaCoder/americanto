@@ -18,6 +18,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "singers": {
+              "type": "SharedSlice"
+            },
+            "conductors": {
+              "type": "SharedSlice"
+            },
+            "gallery": {
+              "type": "SharedSlice"
+            },
             "intro": {
               "type": "SharedSlice"
             },

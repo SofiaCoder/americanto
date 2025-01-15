@@ -12,7 +12,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
@@ -30,12 +29,20 @@
 										},
 										"background": "transparent"
 									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
 						]
 					}
 				]
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "tune",
+				"type": "Text"
 			}
 		},
 		"items": []
