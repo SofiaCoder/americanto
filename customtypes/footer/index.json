@@ -1,0 +1,75 @@
+{
+  "format": "custom",
+  "id": "footer",
+  "label": "Footer",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "list_columns": {
+        "type": "Group",
+        "config": {
+          "label": "List Columns",
+          "repeat": true,
+          "fields": {
+            "title": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Title",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "heading4,heading5,heading6,strong,em"
+              }
+            },
+            "list_column": {
+              "type": "StructuredText",
+              "config": {
+                "label": "List Column",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,list-item,o-list-item,embed,strong,em"
+              }
+            }
+          }
+        }
+      },
+      "social_media_links": {
+        "type": "Group",
+        "config": {
+          "label": "Social Media Links",
+          "repeat": true,
+          "fields": {
+            "link_title": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Link Title",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "heading5,heading4,heading6,strong,em"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
