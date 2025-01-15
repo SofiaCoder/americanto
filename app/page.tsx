@@ -26,18 +26,3 @@ export async function generateMetadata(): Promise<Metadata> {
     description: page.data.meta_description,
   };
 }
-
-// export default function Home() {
-//   return (
-//     <>
-//       <ScrollObserver />
-//       <main>
-//         <Hero />
-//         <Intro />
-//         <Gallery />
-//         <Conductors />
-//         <Singers />
-//       </main>
-//     </>
-//   );
-//}
