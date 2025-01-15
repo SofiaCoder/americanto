@@ -1,0 +1,53 @@
+{
+  "id": "singers",
+  "type": "SharedSlice",
+  "name": "Singers",
+  "description": "Singers",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "subgroup": {
+          "type": "Group",
+          "config": {
+            "label": "Subgroup",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading2,heading3,heading4"
+                }
+              },
+              "list_of_singers": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "List Of Singers",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "list-item,strong,em,paragraph"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
