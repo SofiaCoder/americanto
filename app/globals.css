@@ -36,8 +36,6 @@ section {
   padding-inline: 4rem;
   padding-top: 9rem;
   padding-bottom: 10rem;
-  min-height: 80vh;
-  max-height: 100vh;
   scroll-padding-top: 9rem;
   align-content: center;
 }
@@ -90,7 +88,7 @@ section {
   height: 7rem;
 }
 
-h1 {
+/* h1 {
   font-size: 52px;
   font-weight: 600;
 }
@@ -103,11 +101,10 @@ h2 {
 h3 {
   font-size: 36px;
   font-weight: 500;
-}
+} */
 
 @media (width < 640px) {
   section {
-    max-height: 90vh;
     padding-inline: 2rem;
     padding-top: 4rem;
     padding-bottom: 4rem;

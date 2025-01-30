@@ -37,7 +37,9 @@ const Conductors = ({ slice }: ConductorsProps): JSX.Element => {
       id='conductors'
       data-section-class='odd-section-bg'
     >
-      <h2 className='slide-in-top'>{slice.primary.title}</h2>
+      <Heading as='h2' size='lg' className='slide-in-top'>
+        {slice.primary.title}
+      </Heading>
       <div className='flex flex-col mt-10 items-center lg:flex-row'>
         {slice.primary.conductor.map((item, index) => (
           <div key={index} className='m-10 slide-in-bottom'>
