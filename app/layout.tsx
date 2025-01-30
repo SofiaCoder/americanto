@@ -5,6 +5,7 @@ import ScrollObserver from '../components/ScrollObserver';
 import Menu from '@/components/Menu';
 import { createClient, repositoryName } from '@/prismicio';
 import { PrismicPreview } from '@prismicio/next';
+import Footer from '@/components/Footer';
 
 const lato = Lato({
   subsets: ['latin'],
@@ -48,6 +49,7 @@ export default function RootLayout({
       <body className={lato.className}>
         <Menu />
         {children}
+        <Footer />
         <ScrollObserver />
         <PrismicPreview repositoryName={repositoryName} />
       </body>
