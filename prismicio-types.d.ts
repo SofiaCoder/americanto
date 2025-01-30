@@ -4,55 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-/**
- * Item in *Footer → List Columns*
- */
-export interface FooterDocumentDataListColumnsItem {
-  /**
-   * Title field in *Footer → List Columns*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.list_columns[].title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * List Column field in *Footer → List Columns*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.list_columns[].list_column
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  list_column: prismic.RichTextField;
-}
-
-/**
- * Item in *Footer → Social Media Links*
- */
-export interface FooterDocumentDataSocialMediaLinksItem {
-  /**
-   * Link Title field in *Footer → Social Media Links*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.social_media_links[].link_title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  link_title: prismic.RichTextField;
-
-  /**
-   * Link field in *Footer → Social Media Links*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.social_media_links[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-}
+type FooterDocumentDataSlicesSlice = ColumnSlice;
 
 /**
  * Content for Footer documents
@@ -70,28 +22,15 @@ interface FooterDocumentData {
   logo: prismic.ImageField<never>;
 
   /**
-   * List Columns field in *Footer*
+   * Slice Zone field in *Footer*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: footer.list_columns[]
+   * - **API ID Path**: footer.slices[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  list_columns: prismic.GroupField<Simplify<FooterDocumentDataListColumnsItem>>;
-
-  /**
-   * Social Media Links field in *Footer*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.social_media_links[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  social_media_links: prismic.GroupField<
-    Simplify<FooterDocumentDataSocialMediaLinksItem>
-  >;
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice>;
 }
 
 /**
@@ -278,6 +217,83 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes = FooterDocument | HomeDocument | SettingsDocument;
+
+/**
+ * Item in *Column → Default → Primary → Items*
+ */
+export interface ColumnSliceDefaultPrimaryItemsItem {
+  /**
+   * Text field in *Column → Default → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column.default.primary.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Link field in *Column → Default → Primary → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column.default.primary.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *Column → Default → Primary*
+ */
+export interface ColumnSliceDefaultPrimary {
+  /**
+   * Title field in *Column → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Items field in *Column → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<Simplify<ColumnSliceDefaultPrimaryItemsItem>>;
+}
+
+/**
+ * Default variation for Column Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ColumnSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ColumnSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Column*
+ */
+type ColumnSliceVariation = ColumnSliceDefault;
+
+/**
+ * Column Shared Slice
+ *
+ * - **API ID**: `column`
+ * - **Description**: Column
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ColumnSlice = prismic.SharedSlice<"column", ColumnSliceVariation>;
 
 /**
  * Item in *Conductors → Default → Primary → Conductor*
@@ -680,8 +696,7 @@ declare module "@prismicio/client" {
     export type {
       FooterDocument,
       FooterDocumentData,
-      FooterDocumentDataListColumnsItem,
-      FooterDocumentDataSocialMediaLinksItem,
+      FooterDocumentDataSlicesSlice,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
@@ -689,6 +704,11 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
+      ColumnSlice,
+      ColumnSliceDefaultPrimaryItemsItem,
+      ColumnSliceDefaultPrimary,
+      ColumnSliceVariation,
+      ColumnSliceDefault,
       ConductorsSlice,
       ConductorsSliceDefaultPrimaryConductorItem,
       ConductorsSliceDefaultPrimary,
