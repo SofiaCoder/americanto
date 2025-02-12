@@ -6,6 +6,7 @@ import Menu from '@/components/Menu';
 import { createClient, repositoryName } from '@/prismicio';
 import { PrismicPreview } from '@prismicio/next';
 import Footer from '@/components/Footer';
+import CookieConsentBanner from '@/components/CookieConsentBanner';
 
 const lato = Lato({
   subsets: ['latin'],
@@ -52,6 +53,7 @@ export default function RootLayout({
         <Footer />
         <ScrollObserver />
         <PrismicPreview repositoryName={repositoryName} />
+        <CookieConsentBanner />
       </body>
     </html>
   );
