@@ -10,9 +10,9 @@ import {
 } from '@prismicio/react';
 
 const conductorBox =
-  'relative h-[60vw] w-[60vw] lg:h-[40vh] lg:w-[40vw] flex items-end rounded-xl mt-6';
+  'relative h-[60vw] w-[60vw] lg:h-[25rem] lg:w-[30rem] flex items-end rounded-xl mt-6';
 const conductorImage =
-  'object-cover absolute h-[60vw] w-[60vw] lg:h-[40vh] lg:w-[40vw] hover:opacity-25 hover:ease-in duration-100 rounded-xl';
+  'object-cover absolute h-[60vw] w-[60vw] lg:h-[25rem] lg:w-[30rem] hover:opacity-25 hover:ease-in duration-100 rounded-xl';
 const components: JSXMapSerializer = {
   paragraph: ({ children }) => (
     <Paragraph size='md' className='p-4'>
@@ -40,9 +40,9 @@ const Conductors = ({ slice }: ConductorsProps): JSX.Element => {
       <Heading as='h2' size='lg' className='slide-in-top'>
         {slice.primary.title}
       </Heading>
-      <div className='flex flex-col mt-10 items-center lg:flex-row'>
+      <div className='flex flex-col mt-10 gap-5 justify-between lg:flex-row'>
         {slice.primary.conductor.map((item, index) => (
-          <div key={index} className='m-10 slide-in-bottom'>
+          <div key={index} className='slide-in-bottom'>
             <Heading as='h3' size='md'>
               {item.name}
             </Heading>

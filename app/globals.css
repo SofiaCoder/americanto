@@ -16,7 +16,7 @@
     --background: #181818;
     --foreground: #ffffff;
     --color-odd: #181818;
-    --color-even: #490303;
+    --color-even: #fffbfb;
   }
 }
 html {
@@ -33,18 +33,11 @@ body {
 }
 
 section {
-  padding-inline: 4rem;
+  padding-inline: 10rem;
   padding-top: 9rem;
   padding-bottom: 10rem;
   scroll-padding-top: 9rem;
   align-content: center;
-}
-
-.odd-section-bg {
-  background-color: var(--color-odd);
-}
-.even-section-bg {
-  background-color: var(--color-even);
 }
 
 /* Animation Classes */

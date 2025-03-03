@@ -28,16 +28,16 @@ const zoomInProperties = {
 };
 const SlideShow: FC<SlideShowProps> = ({ images }) => {
   return (
-    <div className='w-[80vw]'>
+    <div className='w-full rounded-2xl'>
       <Fade {...zoomInProperties}>
         {images.map((item, index: number) => (
           <div
             key={index}
-            className='flex justify-center md:items-center items-start h-[40vh] md:h-[50vh] w-[80vw] lg:h-[75vh] rounded-2xl'
+            className='flex justify-center md:items-center items-start h-[40vh] md:h-[50vh] w-full lg:h-[75vh] '
           >
             <PrismicNextImage
               field={item.image}
-              className='h-[40vh] md:h-[50vh] w-[80vw] lg:h-[75vh] rounded-2xl'
+              className='h-[40vh] md:h-[50vh] w-full lg:h-[75vh] rounded-2xl'
             />
           </div>
         ))}

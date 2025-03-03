@@ -48,7 +48,7 @@ const Singers = ({ slice }: SingersProps): JSX.Element => {
       <Heading as='h2' size='lg'>
         {slice.primary.title}
       </Heading>
-      <div className='flex flex-col gap-6 md:flex-row mt-10 justify-around'>
+      <div className='flex flex-col gap-6 md:flex-row mt-10 justify-between'>
         {slice.primary.subgroup.map((item, index) => (
           <div key={index} className=''>
             <PrismicRichText field={item.title} components={components} />

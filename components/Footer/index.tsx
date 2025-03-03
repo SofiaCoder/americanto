@@ -35,7 +35,7 @@ const Footer = async () => {
   const data = footer.data;
 
   return (
-    <footer className='flex flex-col gap-5 md:flex-row justify-between pr-6 md:pr-28 bg-red-950 py-10 align-middle'>
+    <footer className='flex flex-col gap-5 md:flex-row justify-between pr-6 md:pr-28 py-10 align-middle border-t-2'>
       <PrismicNextImage
         field={data.logo}
         className='w-full h-auto md:w-1/5 md:h-1/6'
