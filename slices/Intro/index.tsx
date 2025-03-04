@@ -38,7 +38,7 @@ const Intro = ({ slice }: IntroProps): JSX.Element => {
       <div className='slide-in-top'>
         <PrismicNextImage
           field={slice.primary.image}
-          className='drop-shadow-xl max-w-4xl w-full'
+          className='drop-shadow-xl max-w-4xl w-full rounded-2xl'
         />
       </div>
       <div className='lg:w-1/2 flex flex-col gap-8 slide-in-bottom'>

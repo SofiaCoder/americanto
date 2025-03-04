@@ -28,17 +28,17 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       <div className='flex flex-col md:flex-row items-center slide-in-bottom'>
         <Paragraph
           size='md'
-          className='hidden w-52 h-6 grow-0 text-nowrap text-center md:-rotate-90 md:-mr-8 md:block lg:-mr-16'
+          className='hidden w-52 h-6 grow-0 text-nowrap text-center md:-rotate-90 md:-mr-18 md:block'
         >
           {slice.primary.left_text}
         </Paragraph>
         <PrismicNextImage
           field={slice.primary.hero_image}
-          className='h-[40vh] grow rounded-md shrink-0 md:h-[50vh] md:w-[65vw] lg:h-[65vh] lg:w-[70vw]'
+          className='h-[40vh] grow rounded-2xl shrink-0 md:h-[50vh] md:w-[65vw] lg:h-[65vh] lg:w-[70vw]'
         />
         <Paragraph
           size='md'
-          className='mt-4 w-52 h-6 grow-0 text-nowrap text-center md:mt-0 md:rotate-90 md:-ml-8 lg:-ml-16'
+          className='mt-4 w-52 h-6 grow-0 text-nowrap text-center md:mt-0 md:rotate-90 md:-ml-18'
         >
           {slice.primary.right_text}
         </Paragraph>

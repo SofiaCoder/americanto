@@ -25,7 +25,10 @@ html {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background-image: url('/images/turkosBlue.jpg');
+  background-size: cover; /* Ensure the image covers the entire background */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center center; /* Center the image */
   font-family: Lato;
   transition:
     background-color 0.8s ease,
